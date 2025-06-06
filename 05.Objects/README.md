@@ -67,4 +67,4 @@ const circle = new Circle(1);
   - **this** points to the new empty object
   - then it will return this new object
 
-**Warning** there is not a big difference in the two approaches. Creating objects using the **new** keyword is similar to the way we create objects in other languages like Java or C#
+❗ there is not a big difference in the two approaches. Creating objects using the **new** keyword is similar to the way we create objects in other languages like Java or C#
