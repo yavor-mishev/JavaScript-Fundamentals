@@ -1,6 +1,6 @@
 1. What is JavaScript?
 
-   - one of the most popular languagesin the world
+   - one of the most popular languages in the world
    - you can work as a front-end, back-end or full-stack developer
 
 2. What can you do with JavaScript?
@@ -10,7 +10,7 @@
 
 3. Where does JavaScript code run?
    - originaly designed to run only in browsers
-     - every browser hasa JS Engine that can execute JS code
+     - every browser has a JS Engine that can execute JS code
      - FireFox: SpiderMonkey
      - Chrome: v8
    - Node: a C++ program that includes Chrome's JavaScript v8 engine
