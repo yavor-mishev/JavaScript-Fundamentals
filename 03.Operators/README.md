@@ -75,11 +75,33 @@ console.log(true == 1); // true
 ```javascript
 let points = 110;
 
-let type = points > 100 ? "gold" : "silver";
-console.log(type); // gold
+let type = points > 100 ? "gold customer" : "silver customer";
+console.log(type); // gold customer
 ```
 
 - the ternary operator can replace an if...else statement that has only two possible outcomes
   `(condition) ? (if true) : (else);`
 
 ## Logical
+
+### Logical AND (&&)
+
+- this logical operator returns _true_ if **both** operands are true. If any of the operands is false then the whole condition would be false
+
+```javascript
+console.log(true && true); // true
+console.log(true && false); // false
+console.log(false && true); // false
+```
+
+### Logical OR (||)
+
+-- this logical operator returns _true_ if **any** of the operands are true. If none of the operands is true then the whole condition would be false
+
+```javascript
+console.log(true || false); // true
+console.log(false || true); // true
+console.log(false || false); // false
+```
+
+## Bitwise
