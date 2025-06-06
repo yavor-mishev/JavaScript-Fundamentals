@@ -82,7 +82,7 @@ let person = {
   age: 24,
 }; // object literal
 
-//Accessing an object property
+// accessing an object property
 person.name = "John"; // dot notation
 person["age"] = 30; // bracket notation by passing the prop name
 ```
@@ -107,7 +107,7 @@ console.log(selectedColors); // ['red', 'blue', 'green', 10]
 - an array is technically an object so just like our person object arrays also have useful key/value pairs (properties) that we can access
 
 ```javascript
-selectedColors.
+selectedColors.length; // returns the length of the array
 ```
 
 ## Functions
