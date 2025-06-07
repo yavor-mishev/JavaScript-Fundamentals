@@ -225,7 +225,7 @@ courses.sort(function (course1, course2) {
 });
 ```
 
-:red_exclamation_mark: remember that the `sort()` method converts everything to a string and then compares and sorts the elements.
+❗ remember that the `sort()` method converts everything to a string and then compares and sorts the elements.
 
 ```javascript
 numbers = [1, 2, 3, 28, 4, 5];
