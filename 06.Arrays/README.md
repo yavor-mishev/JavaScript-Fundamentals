@@ -261,3 +261,41 @@ numbers.every(function(el){
   return el < 0;
 };) // false
 ```
+
+## Filtering an array
+
+```javascript
+let numbers = [1, 2, 3, 4, -5, -6, 7];
+const filtered = numbers.filter(function (value) {
+  return value >= 0;
+});
+filtered = numbers.filter((n) => n >= 0); // [1, 2, 3, 4, 7];
+```
+
+## Mapping an array
+
+```javascript
+const numbers = [1, -1, 2, 3];
+
+const items = numbers.filter((n) => n >= 0).map((n) => ({ value: n }));
+console.log(items); // [{ value: 1 }, { value: 2 }, { value: 3 }]
+```
+
+## Reducing an array
+
+```javascript
+const cart = [8.98, 3.2, 16.89];
+
+let sum = 0;
+for (let item of cart) sum += item;
+
+sum = cart.reduce((accumilator, currValue) => {
+  return accumilator + currValue;
+}, 0);
+```
+
+The `reduce()` method has two parameters: `callback fn` and an initial value for the `accumilator`. If we dont give the accumilator an initial value then the it will recieve the value of the first element in the array and the `currValue` the ones after that.
+
+---
+
+### Exercise 1
