@@ -131,3 +131,19 @@ another.length = 0;
 ```
 
 This is probably the best way to do it. Regardless of which array we choose we will set the lenght of the array in memory to 0 so both `numbers` and `another` would then point to an empty array
+
+- solution 3: using the splice method
+
+```javascript
+numbers.splice(0, numbers.length);
+```
+
+The splice method accepts a starting index and the number of elements we want to delete. We get the same result as with solution 2 but with more clutter
+
+- solution 4: using a `while` loop and popping elements while the array is not empty
+
+```javascript
+while (numbers.length) numbers.pop();
+```
+
+This solution is not optimal because if we had an array of 1.000.000 elements we would have to call the `pop()` methid a million times

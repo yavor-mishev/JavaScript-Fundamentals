@@ -58,6 +58,7 @@ console.log(`The course with name "Python" is at index:  ${foundIndex}`); // 3
 
 //Emptying an array
 const arr = [1, 2, 3, 4, 5];
-while (arr.length) {
-  arr.pop(); // removes the last element until the array is empty
-}
+const anotherArr = arr; // anotherArr is a reference to the same array
+// while (arr.length) {
+//   arr.pop(); // removes the last element until the array is empty
+// }
