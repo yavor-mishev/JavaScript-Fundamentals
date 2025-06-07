@@ -231,3 +231,33 @@ courses.sort(function (course1, course2) {
 numbers = [1, 2, 3, 28, 4, 5];
 numbers.sort(); // [1, 2, 28, 3, 4, 5];
 ```
+
+## Testing the elements of an array
+
+- every(): checks if all the elements of an array pass a certain condition
+
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+numbers.every(function(el){
+  return el > 0;
+};) // true
+
+numbers = [1, 2, -1, 3, 4];
+numbers.every(function(el){
+  return el > 0;
+};) // false
+```
+
+- some(): checks if there is at least one element of an array that passes a certain condition
+
+```javascript
+let numbers = [1, 2, 3, 4, 5, -1];
+numbers.some(function(el){
+  return el < 0;
+};) // true
+
+numbers = [1, 2, 3, 4, 5];
+numbers.every(function(el){
+  return el < 0;
+};) // false
+```
