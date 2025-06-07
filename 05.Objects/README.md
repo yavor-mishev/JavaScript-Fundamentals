@@ -169,3 +169,50 @@ const Circle1 = new Function(
  }`
 );
 ```
+
+## Value types vs Reference types
+
+- primitives are independant. Here the variable _y_ takes the value of _x_ but doesnt point to the same place in memory
+
+```javascript
+let x = 10;
+let y = x;
+
+x = 20;
+console.log(x, y); // 20, 10
+```
+
+- now if we were to have objects we can see that both variables _a_ and _b_ point to the same place in memory and whichever property we change it will change for the other object. What is stored in the _a_ and _b_ variables is actually the address in memory of our object
+
+```javascript
+let a = { value: 10 };
+let b = a;
+console.log(a.value, b.value); // 10, 10
+
+a.value = 20;
+console.log(a.value, b.value); // 20, 20
+
+b.value = 30;
+console.log(a.value, b.value); // 30, 30
+```
+
+- here is another example of primitive type behaviour. The number variable in the function is completely independant from the variable outside of the function.
+
+```javascript
+let number = 10;
+let another = { value: 10 };
+
+function increment(number) {
+  number++;
+}
+
+function increase(another) {
+  another.value++;
+}
+
+increment(number);
+console.log(number); // 10;
+
+increase(another);
+console.log(another.value); // 11
+```
