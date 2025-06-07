@@ -109,7 +109,7 @@ const numbers = [1, 2, 3, 4];
 const another = numbers;
 ```
 
-- solution 1: assign an empty array
+- **solution 1**: assign an empty array
 
 ```javascript
 numbers = [];
@@ -117,7 +117,7 @@ numbers = [];
 
 The problem with this approach is that the array `another` would still point at the original array of `[1,2,3,4]`. We are only emptying the `numbers` array
 
-- solution 2: set the length of either array to 0
+- **solution 2**: set the length of either array to 0
 
 ```javascript
 numbers.length = 0;
@@ -126,7 +126,7 @@ another.length = 0;
 
 This is probably the best way to do it. Regardless of which array we choose we will set the lenght of the array in memory to 0 so both `numbers` and `another` would then point to an empty array
 
-- solution 3: using the splice method
+- **solution 3**: using the splice method
 
 ```javascript
 numbers.splice(0, numbers.length);
@@ -134,10 +134,100 @@ numbers.splice(0, numbers.length);
 
 The splice method accepts a starting index and the number of elements we want to delete. We get the same result as with solution 2 but with more clutter
 
-- solution 4: using a `while` loop and popping elements while the array is not empty
+- **solution 4**: using a `while` loop and popping elements while the array is not empty
 
 ```javascript
 while (numbers.length) numbers.pop();
 ```
 
-This solution is not optimal because if we had an array of 1.000.000 elements we would have to call the `pop()` methid a million times
+This solution is not optimal because if we had an array of 1.000.000 elements we would have to call the `pop()` method a million times
+
+## Combining and slicing arrays
+
+```javascript
+const first = [1, 2, 3, 4];
+const second = [5, 6, 7, 8];
+
+// concat()
+const combined = first.concat(second); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+// slice(), slice(start), slice(start, end)
+const result = first.slice(); // [1, 2, 3, 4] - copy
+result = first.slice(1); // [2, 3, 4]
+result = first.slice(1, 3); // [2, 3]
+```
+
+Note that if we are dealing with arrays of objects then the elements of the resulting array `result` will be references to these objects and if we later decide to alter these objects they will change in the initial arrays `first` `second`
+
+## The spread operator
+
+```javascript
+combined = [...first, ...second]; // [1, 2, 3, 4, 5, 6, 7, 8]
+combined = [...first, "hello", ...second, "world"]; // [1, 2, 3, 4, 'hello', 5, 6, 7, 8, 'world']
+const copy = [...combined];
+```
+
+## Iterating an array
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// for ... of
+for (let number of numbers) console.log(number);
+
+//forEach()
+numbers.forEach(function (number) {
+  console.log(number);
+});
+numbers.forEach((number) => console.log(number));
+numbers.forEach((number, index) => console.log(index, number));
+```
+
+## Joining arrays
+
+```javascript
+numbers.join(); // '12345'
+numbers.join(", "); // '1, 2, 3, 4, 5'
+
+const message = "This is my first message";
+const parts = message.split(" "); // ["This", "is", "my", "first", "message"]
+const combined = parts.join("-"); // "This-is-my-first-message"
+```
+
+## Sorting arrays
+
+```javascript
+const numbers = [5, 2, 7, 8, 3, 1, 9, 4, 0, 6];
+const courses = [
+  { id: 0, name: "JavaScript" },
+  { id: 1, name: "C++" },
+];
+
+// sort() converts every element to a string and then sorts the array
+numbers.sort();
+
+// reverse()
+numbers.reverse();
+
+// sort() for arrays of objects
+courses.sort(function (course1, course2) {
+  // course1 < course2 => -1
+  // course1 > course2 => 1
+  // course1 === course2 => 0
+
+  // thiese two lines ensure that case sensitivity desnt affect the sorting method
+  const name1 = course1.name.toUpperCase();
+  const name2 = course2.name.toUpperCase();
+
+  if (name1 < name2) return -1;
+  if (name1 > name2) return 1;
+  return 0;
+});
+```
+
+:red_exclamation_mark: remember that the `sort()` method converts everything to a string and then compares and sorts the elements.
+
+```javascript
+numbers = [1, 2, 3, 28, 4, 5];
+numbers.sort(); // [1, 2, 28, 3, 4, 5];
+```
